@@ -7,14 +7,6 @@ router.get('/', function(req, res) {
   res.send('Blog posts');
 });
 
-router.post('/add', function(req, res) {
-  req.app.locals.collection('blogposts').insertOne(req.body)
-  .then(result  => {
-    console.log(result);
-    res.redirect('/showPosts');
-  });
-});
-
 router.post('/', async (req, res) => {
   const blogpost = new BlogpostModel(req.body)
   await blogpost.save();
