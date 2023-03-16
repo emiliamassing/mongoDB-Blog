@@ -3,13 +3,13 @@ const router = express.Router();
 const BlogpostModel = require('../models/blog-model');
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('Blog posts');
+router.get('/', async (req, res) => {
+  const blogposts = await BlogpostModel.find();
+  res.status(200).json(blogposts);
 });
 
-router.post('/', async (req, res) => {
-  const blogpost = new BlogpostModel(req.body)
-  await blogpost.save();
+router.post('/add', async (req, res) => {
+  const blogpost = await BlogpostModel.create(req.body);
 
   res.status(201).json(blogpost);
 });

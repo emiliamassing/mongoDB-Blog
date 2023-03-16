@@ -2,12 +2,12 @@ GET http://localhost:3000/posts
 
 ###
 
-POST http://localhost:3000/posts
+POST http://localhost:3000/posts/add
 Content-Type: application/json
 
 {
-    "title": "Test",
-    "context": "Another test",
+    "title": "Posting with create",
+    "context": "Another test, Tests if it works to create posts with create function",
     "author": "Emilia"
 }
 
