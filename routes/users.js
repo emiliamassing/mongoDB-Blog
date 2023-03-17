@@ -27,11 +27,19 @@ router.post('/login', async function(req, res) {
 
   let findUser = await UserModel.findOne({username: login.username});
   if(CryptoJs.SHA3(login.password).toString() === findUser.password) {
-    res.status(201).json({username: findUser.username});
+    res.status(201).json({username: findUser.username, _id: findUser.id});
+
+    console.log(findUser.isLoggedIn);
     console.log('Login succecssful');
   } else {
     res.status(401).json('Incorrect username or password');
   }
+});
+
+router.delete('/:id', async function(req, res) {
+  await UserModel.findByIdAndDelete({_id: req.params.id})
+
+  res.status(200).json('User deleted');
 });
 
 module.exports = router;
