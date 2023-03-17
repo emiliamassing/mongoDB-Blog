@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/user-model');
+const CryptoJs = require('crypto-js');
 
 /* GET users listing. */
 router.get('/', async function(req, res) {
@@ -9,8 +10,13 @@ router.get('/', async function(req, res) {
 });
 
 router.post('/add', async function(req, res){
-  const user = await UserModel.create(req.body);
-  res.status(201).json(user);
+  let newUser = await UserModel.create({
+    username: req.body.username,
+    password: CryptoJs.SHA3(req.body.password).toString()
+  })
+
+  console.log("New user", newUser);
+  res.status(201).json(newUser);
 });
 
 module.exports = router;
