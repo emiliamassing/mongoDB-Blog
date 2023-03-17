@@ -6,8 +6,8 @@ POST http://localhost:3000/posts/add
 Content-Type: application/json
 
 {
-    "title": "Posting with create",
-    "context": "Another test, Tests if it works to create posts with create function",
+    "title": "Changed code structure",
+    "context": "Tests if it still works to post",
     "author": "Emilia"
 }
 
