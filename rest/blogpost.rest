@@ -6,9 +6,11 @@ POST http://localhost:3000/posts/add
 Content-Type: application/json
 
 {
-    "title": "Added date",
-    "context": "Added date to posts",
-    "author": "Emilia"
+    "title": "Connected author to users",
+    "context": "Trying to connect post author to user",
+    "author": ["641448917a86ddaa2799adfb"]
 }
 
 ###
+
+DELETE http://localhost:3000/posts/64147a79c41b0c71405cd6d2

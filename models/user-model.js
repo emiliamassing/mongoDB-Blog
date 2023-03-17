@@ -5,7 +5,18 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    password: String
+    password: {
+        type: String, 
+        required: true
+    },
+    isLoggedIn: {
+        type: Boolean,
+        default: false
+    },
+    posts: {
+        type: [mongoose.Types.ObjectId],
+        ref:'post'
+    }
 });
 
 module.exports = mongoose.model('user', UserSchema);
