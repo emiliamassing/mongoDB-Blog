@@ -4,7 +4,7 @@ const BlogpostModel = require('../models/post-model');
 
 /* GET users listing. */
 router.get('/', async function(req, res) {
-  const blogposts = await BlogpostModel.find();
+  const blogposts = await BlogpostModel.find().populate('author');
   res.status(200).json(blogposts);
 });
 

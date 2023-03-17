@@ -12,10 +12,6 @@ const UserSchema = mongoose.Schema({
     isLoggedIn: {
         type: Boolean,
         default: false
-    },
-    posts: {
-        type: [mongoose.Types.ObjectId],
-        ref:'post'
     }
 });
 
